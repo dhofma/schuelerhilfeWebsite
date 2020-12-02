@@ -1,0 +1,88 @@
+@media (min-width: 1112px){
+    .flex-container-selection{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        height: 90vh;
+        align-items: center;
+        background-image: url(../resources/banner.jpg);
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .selectButton{
+        width: 70vh;
+        height: 20vh;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 6vh;
+        margin-top: 15px;
+        background: rgb(122, 180, 62);
+        border-color: transparent;
+        box-shadow: 5px 5px 5px gray;
+    }
+}
+
+.flex-container-heading{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+}
+
+.signInButton{
+    width: 35vw;
+    height: 7vw;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 3vw;
+    background: rgb(122, 180, 62);
+    border-color: transparent;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.navButton{
+    background: rgb(75, 75, 75);
+}
+
+
+.navBar{
+    height: 10vh;
+    background: white;
+}
+
+.heading{
+    width: 100vw;
+    padding-top: 7.5vw;
+    height: 25vw;
+    font-size: 6.5vw;
+    text-align: center;
+    background-image: url(../resources/banner.jpg);
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+@media (max-width: 1112px){
+    .flex-container-selection{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-evenly;
+        height: 90vh;
+        align-items: center;
+    }
+
+    .selectButton{
+        width: 50vw;
+        height: 15vw;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 5vw;
+        margin-top: 15px;
+        background: rgb(122, 180, 62);
+        border-color: transparent;
+        box-shadow: 5px 5px 5px gray;
+    }
+}
