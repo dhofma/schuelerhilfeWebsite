@@ -2,14 +2,16 @@ import * as msal from "@azure/msal-browser";
 
 export class AuthService{
 
-    msalConfig = {
+    private msalConfig = {
         auth:{
             clientId: '4a3e691e-f053-4855-b29a-64adab42e87f',
             authority: 'https://login.microsoftonline.com/9a618953-9bf3-44e9-af39-63b18eae5b5f'
         }
     };
 
-    msalInstance;
+    private msalInstance: msal.PublicClientApplication;
+
+    public User : msal.AccountInfo;
 
     constructor(){
         this.msalInstance = new msal.PublicClientApplication(this.msalConfig);
@@ -17,8 +19,8 @@ export class AuthService{
 
     async Login(){
         try{
-            let loginresponse = await this.msalInstance.loginPopup();
-            console.log(loginresponse);
+            let loginresponse : msal.AuthenticationResult = await this.msalInstance.loginPopup();
+            this.User = loginresponse.account;
             return Promise.resolve();
         }
         catch (err){

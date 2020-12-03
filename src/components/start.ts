@@ -9,7 +9,7 @@ export class Start{
 
     Login(){
         this.authSvc.Login().then(()=>{
-            this.router.navigateToRoute('select');
+            this.router.navigateToRoute('editProfile');
         });
     }
 }

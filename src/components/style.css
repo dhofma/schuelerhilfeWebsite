@@ -65,6 +65,26 @@
     background-size: 100%;
 }
 
+.flex-container-edit{
+    display: flex;
+    justify-content: center;
+}
+
+.editForm{
+    width: 50vw;
+}
+
+.submitButton{
+    width: 5vw;
+    height: 2.5vw;
+    background: rgb(122, 180, 62);
+    border-color: transparent;
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 5px;
+    font-size: 1vw;
+    font-weight: bold;
+}
+
 @media (max-width: 1112px){
     .flex-container-selection{
         display: flex;
