@@ -1,4 +1,4 @@
-@media (min-width: 1112px){
+@media (min-width: 1355px){
     .flex-container-selection{
         display: flex;
         flex-flow: row wrap;
@@ -47,6 +47,10 @@
     background: rgb(75, 75, 75);
 }
 
+.profilePic{
+    width: 10vw;
+    height: 10vw;
+}
 
 .navBar{
     height: 10vh;
@@ -67,7 +71,10 @@
 
 .flex-container-edit{
     display: flex;
+    flex-flow: row column wrap;
     justify-content: center;
+    align-items: center;
+    height: 90vh;
 }
 
 .editForm{
@@ -75,8 +82,8 @@
 }
 
 .submitButton{
-    width: 5vw;
-    height: 2.5vw;
+    width: 7vw;
+    height: 3.5vw;
     background: rgb(122, 180, 62);
     border-color: transparent;
     box-shadow: 5px 5px 5px gray;
@@ -85,7 +92,7 @@
     font-weight: bold;
 }
 
-@media (max-width: 1112px){
+@media (max-width: 1355px){
     .flex-container-selection{
         display: flex;
         flex-flow: column wrap;
