@@ -1,0 +1,36 @@
+<template>
+    <require from="./style.css"></require>
+    <div class="flex-container-edit">
+      <form class="editForm">
+        <h1>Nachhilfe geben</h1>
+        <br>
+        <div class="form-group">
+          <label for="SelectSubject">Fach</label>
+          <select class="form-control" id="SelectSubject" value.bind="tempUser.class">
+            <option model.bind="null">Fach auswählen...</option>
+            <option repeat.for="subject of subjects"
+                    model.bind="subject">${subject}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="SelectSubject">Fach</label>
+          <input name="subject" list="subjectsTest" />
+          <datalist id="subjectsTest"></datalist>
+        </div>
+
+        <div class="form-group">
+          <label for="SelectTeacher">Lehrer</label>
+          <select class="form-control" id="SelectTeacher" value.bind="tempUser.class">
+            <option model.bind="null">Lehrer auswählen...</option>
+            <option repeat.for="class of classes"
+                    model.bind="class.class1">${class.class1}</option>
+          </select>
+        </div>
+
+        <button type="submit" click.delegate="Submit()" class="submitButton">Submit</button>
+      </form>
+      <button class="signInButton" click.delegate="Test()">Test</button>
+    </div>
+
+  
+</template>

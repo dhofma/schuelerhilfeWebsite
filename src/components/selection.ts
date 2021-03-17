@@ -8,6 +8,9 @@ export class Selection {
     constructor(private authSvc: AuthService, private router: Router){}
 
     Give(){
-        console.log(this.authSvc.User);
+        this.router.navigateToRoute('createOffer');
+    }
+
+    Receive(){
     }
 }

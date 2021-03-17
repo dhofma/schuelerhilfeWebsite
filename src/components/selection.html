@@ -1,7 +1,10 @@
 <template>
     <require from="./style.css"></require>
-    <div class="flex-container-selection">
+    <div class="flex-container-selection" if.bind="authSvc.IsLoggedIn">
         <button type="button" class="selectButton"  click.delegate="Give()">Nachhilfe geben</button>
         <button type="button" class="selectButton" click.delegate="Receive()">Nachhilfe nehmen</button>
+    </div>
+    <div if.bind="!authSvc.IsLoggedIn">
+        Not Logged In!
     </div>
 </template>

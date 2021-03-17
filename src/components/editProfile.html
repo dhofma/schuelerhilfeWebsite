@@ -1,40 +1,41 @@
 <template>
   <require from="./style.css"></require>
   <require from="../valueconverter/image"></require>
-  <div class="flex-container-edit">
+  <div class="flex-container-edit" if.bind="authSvc.IsLoggedIn">
     <form class="editForm">
       <h1>Profil Bearbeiten</h1>
       <br>
       <div class="form-group">
         <label for="InputImage">Profilbild</label>
         <br>
-        <img src.bind="image | image" class="profilePic" if.bind="image">
-        <input type="file" class="input" id="InputImage" accept="image/*" files.bind="image">
+        <img src.bind="files | image" class="profilePic" if.bind="files">
+        <img src.bind="authSvc.GetPictureUrl()" class="profilePic" if.bind="!files">
+        <input type="file" class="input" id="InputImage" accept="image/*" files.bind="files">
       </div>
       <div class="form-group">
         <label for="InputFirstName">Vorname</label>
-        <input type="text" class="form-control" id="InputFirstName">
+        <input type="text" class="form-control" id="InputFirstName" readonly value.bind="tempUser.firstName">
       </div>
       <div class="form-group">
         <label for="InputLastName">Nachname</label>
-        <input type="text" class="form-control" id="InputLastName">
+        <input type="text" class="form-control" id="InputLastName" readonly value.bind="tempUser.lastName">
       </div>
       <div class="form-group">
         <label for="InputEmail">Email-Adresse</label>
-        <input type="email" class="form-control" id="InputEmail" readonly>
+        <input type="email" class="form-control" id="InputEmail" readonly value.bind="tempUser.email">
       </div>
       <div class="form-group">
         <label for="InputClass">Klasse</label>
-        <select class="form-control" id="InputClass">
-          <option>1A</option>
-          <option>1B</option>
-          <option>1C</option>
-          <option>1D</option>
-          <option>1E</option>
-          <option>2A</option>
+        <select class="form-control" id="InputClass" value.bind="tempUser.class">
+          <option model.bind="null">Klasse auswählen...</option>
+          <option repeat.for="class of classes"
+                  model.bind="class.class1">${class.class1}</option>
         </select>
       </div>
-      <button type="submit" click.delegate="Test()" class="submitButton">Submit</button>
+      <button type="submit" click.delegate="Submit()" class="submitButton">Submit</button>
     </form>
   </div>
+  <div if.bind="!authSvc.IsLoggedIn">
+    Not Logged In!
+</div>
 </template>

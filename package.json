@@ -11,6 +11,7 @@
     "@azure/msal-browser": "^2.7.0",
     "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.2",
+    "aurelia-fetch-client": "^1.8.2",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"

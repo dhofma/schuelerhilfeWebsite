@@ -1,29 +1,3 @@
-@media (min-width: 1355px){
-    .flex-container-selection{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-evenly;
-        height: 90vh;
-        align-items: center;
-        background-image: url(../resources/banner.jpg);
-        background-position-y: 50%;
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-
-    .selectButton{
-        width: 70vh;
-        height: 20vh;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 6vh;
-        margin-top: 15px;
-        background: rgb(122, 180, 62);
-        border-color: transparent;
-        box-shadow: 5px 5px 5px gray;
-    }
-}
-
 .flex-container-heading{
     display: flex;
     flex-flow: column wrap;
@@ -43,19 +17,41 @@
     box-shadow: 5px 5px 5px gray;
 }
 
-.navButton{
-    background: rgb(75, 75, 75);
+.navBar{
+    background: white; /*rgb(75, 75, 75)*/
+    border-bottom: 4px solid rgb(211,211,211);
+    height: 10vh;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
 }
+
+.profileButton{
+    border-color: gray;
+    border-style: solid;
+    border-width: 0px 2px 0px 2px;
+    width: 10vh;
+    height: 100%;
+}
+
+.profileButtonPic{
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+
+.navBarImg{
+    height: 90%;
+}
+
+
 
 .profilePic{
     width: 10vw;
     height: 10vw;
 }
 
-.navBar{
-    height: 10vh;
-    background: white;
-}
+
 
 .heading{
     width: 100vw;
@@ -90,6 +86,32 @@
     border-radius: 5px;
     font-size: 1vw;
     font-weight: bold;
+}
+
+@media (min-width: 1355px){
+    .flex-container-selection{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        height: 90vh;
+        align-items: center;
+        background-image: url(../resources/banner.jpg);
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .selectButton{
+        width: 70vh;
+        height: 20vh;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 6vh;
+        margin-top: 15px;
+        background: rgb(122, 180, 62);
+        border-color: transparent;
+        box-shadow: 5px 5px 5px gray;
+    }
 }
 
 @media (max-width: 1355px){

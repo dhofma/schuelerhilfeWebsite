@@ -1,7 +1,10 @@
 <template>
   <require from="./components/style.css"></require>
-  <div class="text-center navBar">
-    <img src="resources/logo1.png" class="img-fluid" alt="school logo" style="height: 100%;">
+  <div class="navBar">
+    <img src="resources/logo1.png" click.delegate="Home()" class="navBarImg" alt="school logo">
+    <a route-href='route: editProfile' if.bind="authSvc.IsLoggedIn" class="profileButton">
+      <img src.bind='authSvc.GetPictureUrl()' class="profileButtonPic" if.bind="authSvc.PictureLoaded">
+    </a>
   </div>
   <router-view></router-view>
 </template>
