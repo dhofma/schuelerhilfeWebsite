@@ -1,5 +1,5 @@
 export class Teacher{
     public id: number;
-    public firstname: Text;
-    public lastname: Text;
+    public firstname: string;
+    public lastname: string;
 }

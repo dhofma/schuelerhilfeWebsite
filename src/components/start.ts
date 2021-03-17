@@ -11,13 +11,9 @@ export class Start{
     Login(){
         this.authSvc.Login().then(()=>{
             this.userSvc.GetUserById(this.authSvc.user.id).then((response) =>{
-                console.log("worked");
-                console.log(response);
                 this.authSvc.user = response;
                 this.router.navigateToRoute('select');
             }, (response) =>{
-                console.log("failed");
-                console.log(response);
                 this.router.navigateToRoute('editProfile');
             });
             

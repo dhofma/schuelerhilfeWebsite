@@ -20,4 +20,15 @@ export class OfferService{
         else
             return Promise.reject(null);
     }
+
+    public async CreateOffer(offer: UserOffer): Promise<UserOffer>{
+        let result = await this.httpClient.fetch(this.config.offerControllerUrl, {
+            method: "post",
+            body: json(offer)
+        });
+        if(result.ok)
+            return Promise.resolve(result.json());
+        else
+            return Promise.reject(result);
+    }
 }
