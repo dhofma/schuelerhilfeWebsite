@@ -5,6 +5,7 @@ import {TeacherService} from 'services/TeacherService';
 import {autoinject} from 'aurelia-framework';
 import {Teacher} from 'models/Teacher';
 import {UserOffer} from 'models/UserOffer';
+import {Offer} from 'models/Offer';
 
 import {Router} from 'aurelia-router';
 import {observable} from 'aurelia-framework';
@@ -14,7 +15,7 @@ export class createOffer{
     public teachers: Teacher[];
     public subjects: string[];
 
-    public offer: UserOffer;
+    public offer: Offer;
     @observable subject: string;
 
     constructor(private authSvc: AuthService, private subjectSvc: SubjectService, private teacherSvc: TeacherService,
@@ -24,19 +25,11 @@ export class createOffer{
                 this.subjects = result;
             }
         );
-        this.teacherSvc.GetTeachers().then(
-            (result) => {
-                this.teachers = result;
-            }
-        );
     }
 
     activate(){
         this.offer = new UserOffer();
         this.offer.userId = this.authSvc.user.id;
-        this.offer.userFirstName = this.authSvc.user.firstName;
-        this.offer.userLastName = this.authSvc.user.lastName;
-        this.offer.class = this.authSvc.user.class;
     }
 
     subjectChanged(){
@@ -66,10 +59,6 @@ export class createOffer{
             alert("Bitte Fach und Lehrer auswählen!");
             return;
         }
-            
-        var tempTeacher = this.teachers.find(x => x.id == this.offer.teacherId);
-        this.offer.teacherFirstName = tempTeacher.firstname;
-        this.offer.teacherLastName = tempTeacher.lastname;
 
         this.offerSvc.CreateOffer(this.offer).then((response) =>{
             this.router.navigateToRoute('select');

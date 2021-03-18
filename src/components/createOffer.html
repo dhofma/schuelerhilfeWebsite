@@ -20,6 +20,7 @@
             <option repeat.for="teacher of teachers"
                     model.bind="teacher.id">${teacher.firstname + " " + teacher.lastname}</option>
           </select>
+          <p style="color: red;" if.bind="!subject">Zuerst Fach auswählen!</p>
         </div>
 
         <button click.delegate="Submit()" class="submitButton">Submit</button>

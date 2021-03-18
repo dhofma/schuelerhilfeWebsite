@@ -1,7 +1,8 @@
 import {Config} from 'resources/Config';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {autoinject} from 'aurelia-framework';
-import { UserOffer } from 'models/UserOffer';
+import {UserOffer} from 'models/UserOffer';
+import {Offer} from 'models/Offer';
 
 @autoinject
 export class OfferService{
@@ -21,7 +22,7 @@ export class OfferService{
             return Promise.reject(null);
     }
 
-    public async CreateOffer(offer: UserOffer): Promise<UserOffer>{
+    public async CreateOffer(offer: Offer): Promise<Offer>{
         let result = await this.httpClient.fetch(this.config.offerControllerUrl, {
             method: "post",
             body: json(offer)
