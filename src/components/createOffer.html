@@ -6,7 +6,7 @@
         <br>
         <div class="form-group">
           <label for="SelectSubject">Fach</label>
-          <select class="form-control" id="SelectSubject" value.bind="offer.subject">
+          <select class="form-control" id="SelectSubject" value.bind="subject">
             <option model.bind="null">Fach auswählen...</option>
             <option repeat.for="subject of subjects"
                     model.bind="subject">${subject}</option>

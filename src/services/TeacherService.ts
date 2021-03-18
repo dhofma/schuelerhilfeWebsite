@@ -20,4 +20,14 @@ export class TeacherService{
         else
             return Promise.reject(null);
     }
+
+    public async GetTeachersBySubject(subject: string ): Promise<Teacher[]>{
+        let result = await this.httpClient.fetch(this.config.teacherControllerUrl + "/" + subject, {
+            method: "get"
+        });
+        if(result.ok)
+            return Promise.resolve(result.json());
+        else
+            return Promise.reject(null);
+    }
 }

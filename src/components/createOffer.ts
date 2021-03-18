@@ -4,9 +4,10 @@ import {SubjectService} from 'services/SubjectService';
 import {TeacherService} from 'services/TeacherService';
 import {autoinject} from 'aurelia-framework';
 import {Teacher} from 'models/Teacher';
-import { UserOffer } from 'models/UserOffer';
+import {UserOffer} from 'models/UserOffer';
 
 import {Router} from 'aurelia-router';
+import {observable} from 'aurelia-framework';
 
 @autoinject
 export class createOffer{
@@ -14,6 +15,7 @@ export class createOffer{
     public subjects: string[];
 
     public offer: UserOffer;
+    @observable subject: string;
 
     constructor(private authSvc: AuthService, private subjectSvc: SubjectService, private teacherSvc: TeacherService,
         private offerSvc: OfferService, private router: Router){
@@ -37,7 +39,21 @@ export class createOffer{
         this.offer.class = this.authSvc.user.class;
     }
 
+    subjectChanged(){
+        if(this.subject){
+            this.teacherSvc.GetTeachersBySubject(this.subject).then(
+                (result) =>{
+                    this.teachers = result;
+                }
+            );
+        }
+        else{
+            this.teachers = null;
+        }
+    }
+
     Submit(){
+        this.offer.subject = this.subject;
         if(!this.offer.subject && this.offer.teacherId){
             alert("Bitte Fach auswählen!");
             return;
