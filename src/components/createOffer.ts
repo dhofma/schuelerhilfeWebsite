@@ -11,7 +11,7 @@ import {Router} from 'aurelia-router';
 import {observable} from 'aurelia-framework';
 
 @autoinject
-export class createOffer{
+export class CreateOffer{
     public teachers: Teacher[];
     public subjects: string[];
 

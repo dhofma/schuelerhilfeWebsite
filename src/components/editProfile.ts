@@ -15,7 +15,7 @@ export class EditProfile{
     tempUser: User;
     public classes: Class[];
 
-    constructor(private upload: UploadService, private config: Config, private router: Router, private authSvc: AuthService,
+    constructor(private uploadSvc: UploadService, private config: Config, private router: Router, private authSvc: AuthService,
         private userSvc: UserService, private classSvc: ClassService){
             this.GetClasses();
     }
@@ -41,7 +41,7 @@ export class EditProfile{
         this.authSvc.user = this.tempUser;
 
         if(this.files){
-            this.upload.UploadFile(this.files, this.authSvc.user.id).then(() =>{
+            this.uploadSvc.UploadFile(this.files, this.authSvc.user.id).then(() =>{
             }, () =>{
             });
             this.authSvc.PictureLoaded = false;

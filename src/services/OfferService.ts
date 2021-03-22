@@ -12,7 +12,7 @@ export class OfferService{
         this.httpClient = new HttpClient();
     }
 
-    public async GetOffersByUser(userId: string): Promise<UserOffer>{
+    public async GetOffersByUser(userId: string): Promise<UserOffer[]>{
         let result = await this.httpClient.fetch(this.config.offerControllerUrl + "/" + userId, {
             method: "get"
         });

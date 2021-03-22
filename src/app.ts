@@ -16,7 +16,8 @@ export class App {
       { route: '', name: 'home', moduleId: PLATFORM.moduleName("components/start"), nav: true, title: 'Home' },
       { route: 'select', name: 'select', moduleId: PLATFORM.moduleName("components/selection"), title: 'Select' },
       { route: 'editProfile', name: 'editProfile', moduleId: PLATFORM.moduleName("components/editProfile"), title: 'Edit Profile' },
-      { route: 'createOffer', name: 'createOffer', moduleId: PLATFORM.moduleName("components/createOffer"), title: 'Create Offer' }
+      { route: 'createOffer', name: 'createOffer', moduleId: PLATFORM.moduleName("components/createOffer"), title: 'Create Offer' },
+      { route: 'search', name: 'search', moduleId: PLATFORM.moduleName("components/searchOffer"), title: 'Suchen' }
     ]);
   }
 

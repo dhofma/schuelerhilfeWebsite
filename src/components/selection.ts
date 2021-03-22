@@ -12,5 +12,6 @@ export class Selection {
     }
 
     Receive(){
+        this.router.navigateToRoute('search');
     }
 }

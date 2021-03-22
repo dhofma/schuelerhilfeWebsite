@@ -44,14 +44,10 @@
     height: 90%;
 }
 
-
-
 .profilePic{
     width: 10vw;
     height: 10vw;
 }
-
-
 
 .heading{
     width: 100vw;
@@ -87,6 +83,32 @@
     font-size: 1vw;
     font-weight: bold;
 }
+
+/* Offer-Page */
+
+.offerComponent{
+    width: 400px;
+    height: 400px;
+    box-shadow: 5px 5px 5px gray;
+    background: lightgray;
+    border-radius: 5%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2.5%;
+}
+
+.offerContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+}
+
+.profilePictureOffer{
+    height: 50%;
+    border-radius: 50%;
+}
+
 
 @media (min-width: 1355px){
     .flex-container-selection{
