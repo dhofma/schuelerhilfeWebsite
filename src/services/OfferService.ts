@@ -3,6 +3,7 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import {autoinject} from 'aurelia-framework';
 import {UserOffer} from 'models/UserOffer';
 import {Offer} from 'models/Offer';
+import {OfferFilter} from 'models/OfferFilter';
 
 @autoinject
 export class OfferService{
@@ -12,9 +13,10 @@ export class OfferService{
         this.httpClient = new HttpClient();
     }
 
-    public async GetOffersByUser(userId: string): Promise<UserOffer[]>{
-        let result = await this.httpClient.fetch(this.config.offerControllerUrl + "/" + userId, {
-            method: "get"
+    public async GetOffersByFilter(filter: OfferFilter): Promise<UserOffer[]>{
+        let result = await this.httpClient.fetch(this.config.offerControllerUrl  + "/filtered", {
+            method: "post",
+            body: json(filter)
         });
         if(result.ok)
             return Promise.resolve(result.json());

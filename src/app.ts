@@ -3,6 +3,7 @@ import {Router} from 'aurelia-router';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
+
 import { AuthService } from 'services/AuthService';
 
 @autoinject

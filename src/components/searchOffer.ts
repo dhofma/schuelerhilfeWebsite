@@ -1,19 +1,70 @@
 import {UserOffer} from "models/UserOffer";
+import {Teacher} from "models/Teacher";
+import {OfferFilter} from "models/OfferFilter";
+
 import {AuthService} from 'services/AuthService';
 import {OfferService} from 'services/OfferService';
-import {autoinject} from 'aurelia-framework';
+import {SubjectService} from "services/SubjectService";
+import {TeacherService} from "services/TeacherService";
+
+import {autoinject, observable} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
 
 @autoinject
 export class SearchOffer{
     public offers: UserOffer[];
+    public teachers: Teacher[];
+    public subjects: string[];
 
-    constructor(private authSvc: AuthService, private offerSvc: OfferService){}
+    @observable subject: string;
+    @observable teacherId: number;
 
-    activate(){
-        this.offerSvc.GetOffersByUser(this.authSvc.user.id).then(
+    
+    constructor(private authSvc: AuthService, private subjectSvc: SubjectService, private teacherSvc: TeacherService,
+        private offerSvc: OfferService, private router: Router){
+        this.subjectSvc.GetSubjects().then(
             (result) => {
-                this.offers = result;
+                this.subjects = result;
             }
         );
+    }
+
+    subjectChanged(){
+        if(this.subject){
+            this.teacherSvc.GetTeachersBySubject(this.subject).then(
+                (result) =>{
+                    this.teachers = result;
+                }
+            );
+            let filter = new OfferFilter;
+            filter.subject = this.subject;
+            filter.teacherId = 0;
+            this.offerSvc.GetOffersByFilter(filter).then(
+                (result) => {
+                    this.offers = result;
+                }
+            );
+        }
+        else{
+            this.teachers = null;
+            this.offers = null;
+        }
+    }
+
+    teacherIdChanged(){
+        if(this.subject && this.teacherId){
+            let filter = new OfferFilter;
+            filter.subject = this.subject;
+            filter.teacherId = this.teacherId;
+            this.offerSvc.GetOffersByFilter(filter).then(
+                (result) => {
+                    this.offers = result;
+                }
+            );
+        }
+    }
+
+    activate(){
+        
     }
 }

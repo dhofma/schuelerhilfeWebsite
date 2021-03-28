@@ -2,13 +2,14 @@ import {AuthService} from 'services/AuthService';
 import {OfferService} from 'services/OfferService';
 import {SubjectService} from 'services/SubjectService';
 import {TeacherService} from 'services/TeacherService';
-import {autoinject} from 'aurelia-framework';
+
 import {Teacher} from 'models/Teacher';
 import {UserOffer} from 'models/UserOffer';
 import {Offer} from 'models/Offer';
 
 import {Router} from 'aurelia-router';
 import {observable} from 'aurelia-framework';
+import {autoinject} from 'aurelia-framework';
 
 @autoinject
 export class CreateOffer{
