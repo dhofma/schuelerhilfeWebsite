@@ -22,11 +22,6 @@ export class SearchOffer{
     
     constructor(private authSvc: AuthService, private subjectSvc: SubjectService, private teacherSvc: TeacherService,
         private offerSvc: OfferService, private router: Router){
-        this.subjectSvc.GetSubjects().then(
-            (result) => {
-                this.subjects = result;
-            }
-        );
     }
 
     subjectChanged(){
@@ -65,6 +60,10 @@ export class SearchOffer{
     }
 
     activate(){
-        
+        this.subjectSvc.GetSubjects().then(
+            (result) => {
+                this.subjects = result;
+            }
+        );
     }
 }

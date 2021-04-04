@@ -6,5 +6,13 @@
         <p class="offerComponentText">${model.class}</p>
         <b><p class="offerComponentText">${model.subject}</p></b>
         <p class="offerComponentText">${model.teacherFirstName} ${model.teacherLastName}</p>
+        <div if.bind="editable">
+            <button class="offerComponentButton" click.delegate="Delete()">
+                <img src="../../resources/delete.png" height="30px">
+            </button>
+            <button class="offerComponentButton">
+                <img src="../../resources/edit.png" height="30px">
+            </button>
+        </div>
     </div>
 </template>

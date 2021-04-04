@@ -23,4 +23,6 @@
     <div class="offerContainer">
         <offer-component repeat.for="offer of offers" containerless model.bind="offer"></offerComponent>
     </div>
+
+    <h2 class="noOffersText" if.bind="!offers || offers.length < 1">Keine Angebote verfügbar!</h2>
 </template>

@@ -1,0 +1,10 @@
+<template>
+    <require from="./customElements/offerComponent"></require>
+    <require from="./style.css"></require>
+
+    <div class="offerContainer">
+        <offer-component repeat.for="offer of offers" containerless model.bind="offer" editable.bind="true"></offerComponent>
+    </div>
+
+    <h2 class="noOffersText" if.bind="!offers || offers.length < 1">Keine Angebote!</h2>
+</template>

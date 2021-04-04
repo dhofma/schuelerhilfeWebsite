@@ -34,8 +34,6 @@
       </div>
       <button type="submit" click.delegate="Submit()" class="submitButton">Submit</button>
     </form>
-
-    <h2>${tempUser.firstName} ${tempUser.lastName}</h2>
   </div>
   <div if.bind="!authSvc.IsLoggedIn">
     Not Logged In!

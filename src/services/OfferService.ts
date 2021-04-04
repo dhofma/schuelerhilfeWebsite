@@ -34,4 +34,17 @@ export class OfferService{
         else
             return Promise.reject(result);
     }
+
+    public async DeleteOffer(offer:UserOffer): Promise<boolean>{
+        let result = await this.httpClient.fetch(this.config.offerControllerUrl, {
+            method: "delete",
+            body: json(offer)
+        });
+        if(result.ok)
+            return Promise.resolve(true);
+        else
+            return Promise.resolve(false);
+    }
+
+    
 }
