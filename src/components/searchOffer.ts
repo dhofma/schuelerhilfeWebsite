@@ -36,7 +36,7 @@ export class SearchOffer{
             filter.teacherId = 0;
             this.offerSvc.GetOffersByFilter(filter).then(
                 (result) => {
-                    this.offers = result;
+                    this.offers = result.filter(x => x.userId != this.authSvc.user.id);
                 }
             );
         }
@@ -48,12 +48,14 @@ export class SearchOffer{
 
     teacherIdChanged(){
         if(this.subject && this.teacherId){
+            console.log(this.teacherId)
             let filter = new OfferFilter;
             filter.subject = this.subject;
             filter.teacherId = this.teacherId;
             this.offerSvc.GetOffersByFilter(filter).then(
                 (result) => {
-                    this.offers = result;
+                    console.log(result);
+                    this.offers = result.filter(x => x.userId != this.authSvc.user.id);
                 }
             );
         }

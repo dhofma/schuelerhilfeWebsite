@@ -1,6 +1,17 @@
 <template>
   <require from="./components/style.css"></require>
   <div class="navBar">
+    <div class="dropdown" if.bind="authSvc.IsLoggedIn">
+      <a class="dropbtn">
+        <img class="dropimg" src="resources/menu.png">
+      </a>
+      <div class="dropdown-content">
+        <a route-href='route: myOffers'>Meine Angebote</a>
+        <a route-href='route: createOffer'>Nachhilfe geben</a>
+        <a route-href='route: search'>Nachhilfe nehmen</a>
+        <a href="#" click.delegate="Logout()">Ausloggen</a>
+      </div>
+    </div>
     <img src="resources/logo1.png" click.delegate="Home()" class="navBarImg" alt="school logo">
     <a route-href='route: editProfile' if.bind="authSvc.IsLoggedIn" class="profileButton">
       <img src.bind='authSvc.GetPictureUrl()' class="profileButtonPic" if.bind="authSvc.PictureLoaded">

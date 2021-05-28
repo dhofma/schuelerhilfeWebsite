@@ -1,5 +1,7 @@
 <template>
     <require from="./style.css"></require>
+    <require from="./customElements/loginComponent"></require>
+
     <div class="flex-container-edit">
       <form class="editForm">
         <h1>Nachhilfe geben</h1>
@@ -27,6 +29,10 @@
         <button click.delegate="Submit()" class="submitButton">Submit</button>
       </form>
     </div>
+
+    <div if.bind="!authSvc.IsLoggedIn">
+      <login-component></login-component>
+  </div>
 
   
 </template>

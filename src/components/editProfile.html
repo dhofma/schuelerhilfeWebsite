@@ -1,6 +1,8 @@
 <template>
   <require from="./style.css"></require>
   <require from="../valueconverter/image"></require>
+  <require from="./customElements/loginComponent"></require>
+
   <div class="flex-container-edit" if.bind="authSvc.IsLoggedIn">
     <form class="editForm">
       <h1>Profil Bearbeiten</h1>
@@ -36,6 +38,6 @@
     </form>
   </div>
   <div if.bind="!authSvc.IsLoggedIn">
-    Not Logged In!
-  </div>
+        <login-component></login-component>
+    </div>
 </template>

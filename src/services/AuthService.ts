@@ -3,6 +3,8 @@ import {autoinject} from 'aurelia-framework';
 import {User} from 'models/User';
 import {Config} from 'resources/Config';
 
+import {UserService} from 'services/UserService';
+
 @autoinject
 export class AuthService{
 

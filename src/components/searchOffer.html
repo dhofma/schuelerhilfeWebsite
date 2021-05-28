@@ -1,28 +1,35 @@
 <template>
-    <require from="./customElements/offerComponent"></require>
-    <require from="./style.css"></require>
+  <require from="./customElements/offerComponent"></require>
+  <require from="./style.css"></require>
+  <require from="./customElements/loginComponent"></require>
 
+  <div if.bind="authSvc.IsLoggedIn">
     <div class="filterOfferContainer">
-        <div class="filterOfferSelect">
-            <select class="form-control" id="SelectSubject" value.bind="subject">
-              <option model.bind="null">Fach auswählen...</option>
-              <option repeat.for="subject of subjects"
-                      model.bind="subject">${subject}</option>
-            </select>
-          </div>
-  
-          <div class="filterOfferSelect">
-            <select class="form-control" id="SelectTeacher" value.bind="teacherId">
-              <option model.bind="null">Lehrer auswählen...</option>
-              <option repeat.for="teacher of teachers"
-                      model.bind="teacher.id">${teacher.firstname + " " + teacher.lastname}</option>
-            </select>
-          </div>
+      <div class="filterOfferSelect">
+        <select class="form-control" id="SelectSubject" value.bind="subject">
+          <option model.bind="null">Fach auswählen...</option>
+          <option repeat.for="subject of subjects" model.bind="subject">${subject}</option>
+        </select>
+      </div>
+
+      <div class="filterOfferSelect">
+        <select class="form-control" id="SelectTeacher" value.bind="teacherId">
+          <option model.bind="null">Lehrer auswählen...</option>
+          <option repeat.for="teacher of teachers" model.bind="teacher.id">${teacher.firstname + " " + teacher.lastname}
+          </option>
+        </select>
+      </div>
     </div>
 
     <div class="offerContainer">
-        <offer-component repeat.for="offer of offers" containerless model.bind="offer"></offerComponent>
+      <offer-component repeat.for="offer of offers" containerless model.bind="offer">
+        </offerComponent>
     </div>
 
     <h2 class="noOffersText" if.bind="!offers || offers.length < 1">Keine Angebote verfügbar!</h2>
+  </div>
+
+  <div if.bind="!authSvc.IsLoggedIn">
+    <login-component></login-component>
+  </div>
 </template>
